@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools {
         jdk 'jdk21'
-        nodejs 'node23'
+        nodejs 'node25'
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/KastroVKiran/Book-My-Show.git'
+                git branch: 'main', url: 'https://github.com/kishoretatt/Book-My-Show-bykishore.git'
                 sh 'ls -la'  // Verify files after checkout
             }
         }
@@ -105,7 +105,7 @@ pipeline {
                 body: "Project: ${env.JOB_NAME}<br/>" +
                       "Build Number: ${env.BUILD_NUMBER}<br/>" +
                       "URL: ${env.BUILD_URL}<br/>",
-                to: 'kastrokiran@gmail.com',
+                to: 'kishore.tatt@gmail.com',
                 attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
     }
